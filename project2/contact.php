@@ -58,7 +58,7 @@ $result = $conn->query($sql);
     </nav>
   <div class="container">
     <h1>Contacts</h1>
-    <p class="lead">We have <?php echo ($result->num_rows ? $result->num_rows : 0); ?> Books in our list.</p>
+    <p class="lead">Our contact list <?php echo ($result->num_rows ? $result->num_rows : 0); ?> .</p>
     
     <?php if($result->num_rows > 0): ?>
       

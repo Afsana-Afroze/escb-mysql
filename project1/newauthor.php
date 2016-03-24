@@ -68,7 +68,7 @@ if(isset($_POST)){
       </div>
     </nav>
   <div class="container">
-    <h1>New author</h1>
+    <h1>nauthor</h1>
 
 
     <?php if (!empty($msg)) { ?>
