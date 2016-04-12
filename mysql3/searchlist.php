@@ -2,10 +2,14 @@
 include_once "conn.php"; 
 $sql = "SELECT * FROM `MYfamily`";
 if(isset ($_GET['Search']))
-{
+// {
 
-$sql .=" WHERE firstname like  '"."%" .$_GET['Search']."%"."' or lastname like  '"."%" .$_GET['Search']."%"."'";
-}
+// $sql .=" WHERE firstname like  '"."%" .$_GET['Search']."%"."' or lastname like  '"."%" .$_GET['Search']."%"."'";
+// }
+ $sql.="ORDER BY `id` DESC";//ASC
+$sql.="LIMIT 0, 20";//assecnding order serach
+
+ // $sql.="ORDER BY `id` DESC";
 $result = $conn->query($sql);
 
 ?>
