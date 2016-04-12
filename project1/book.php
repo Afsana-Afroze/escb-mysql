@@ -1,10 +1,10 @@
 <?php 
 include_once "conn.php"; 
 $sql = "SELECT books.*,`category`.`name` as `categoryname`,`author`.`name`as`authorname` FROM `books` ";
-$sql .="LEFT JOIN `author` ON `books`.`author_id` =`author`.`id` ";
-$sql .="LEFT JOIN `category` ON `books`.`cat_id` =`category`.`id` ";
+$sql .="LEFT JOIN `author` ON `books`.`author_id` =`author`.`id` ";//left join
+$sql .="LEFT JOIN `category` ON `books`.`cat_id` =`category`.`id` ";//left join
  $sql.="ORDER BY `books`.`id` DESC";//ASC
- $sql.=" LIMIT 0, 5";
+ $sql.=" LIMIT 0, 5";//join limit
 $result = $conn->query($sql);
 ?>
 
@@ -86,7 +86,7 @@ $result = $conn->query($sql);
             <td>".$row['name']."</td>
             <td>".$row['introduction']."</td>
             <td>".$row['description']."</td>
-            </tr>";
+          </tr>";
           }
                ?>
               
