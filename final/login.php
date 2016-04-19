@@ -27,11 +27,17 @@ if($result->num_rows)
 {
   $row=$result-> fetch_row();
   $_SESSION['logedin'] = true;
-  $_SESSION['name'] = $row[1];
-  // echo $result->num_rows;
+  $_SESSION['user'] = array (
+
+                  'id'=> $row['0'],
+                  'name'=> $row[2],
+                   'email' => $row[3]
+    );
+  // $_SESSION['name'] = $row[2];
+  echo $result->num_rows;
 
 }
-if($_SESSION['logedin'])
+if(!$_SESSION['logedin'])
 {
   echo "hello " . $_SESSION['name'];
 }
@@ -67,7 +73,7 @@ if($_SESSION['logedin'])
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="home.php">Home</a></li>
+            <li class="active"><a href="index.php">Home</a></li>
           
             
           </ul>

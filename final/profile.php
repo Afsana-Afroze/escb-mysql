@@ -1,20 +1,29 @@
 <?php
+session_start();
 $msg = '';
 if(isset($_POST))
 {
   include "conn.php"; 
-   $user_id = $_POST['user_id'];
+  $user_id= $_POST['user_id'];
   $name = $_POST['name'];
-  $password= $_POST['password'];
-  $email= $_POST['email'];
+  $dob = $_POST['dob'];
+  $pro = $_POST['pro'];
+  $gndr = $_POST['gndr'];
+  $inro = $_POST['intro'];
+  $fb = $_POST['fb'];
+  $twt = $_POST['twt'];
+
+
+
+
 
   if(!empty($name))
     {
-       $sql = "INSERT INTO `registraion`(`name`,`email`,`password`,`user_id`) VALUES ('".$name."', '".$email."','".md5($password)."', '".$user_id."')";
+       $sql = "INSERT INTO `profile`(`user_id`,`name`,`dob`,`pro`,`gndr`,`intro`,`fb`,`twt`) VALUES ('".$name."', '".$dob."','".$pro."', '".$gndr."', '".$intro."', '".$fb."', '".$twt."', '".$user_id."')";
 
     if($conn->query($sql)===TRUE)
     {
-      $msg= "new registration successfully received";
+      $msg= " successfully received";
     }else
     {
       $msg= "Error: " . $conn->error;
@@ -22,6 +31,10 @@ if(isset($_POST))
   }
 } 
 ?>
+
+
+
+
 
 
 <!DOCTYPE html>
@@ -58,8 +71,7 @@ if(isset($_POST))
       </div>
     </nav>
 
-    <div class="container">
-  <h2>Registration</h2>
+     <h2>Profile</h2>
      <?php if (!empty($msg)) { ?>
 
       <div class="alert alert-info">
@@ -67,43 +79,60 @@ if(isset($_POST))
       </div>
     <?php  }; ?>
 
- 
+
      
 
 
 
   <form role="form" method="post">
-
-<div class="form-group">
+   <div class="form-group">
       <label for="user_id">user_id:</label>
       <input type="user_id" class="form-control" id="user_id" name="user_id" placeholder="Enter user_id" required="true">
     </div>
 
 
-  
-
      <div class="form-group">
-      <label for="name">name:</label>
+      <label for="name">Fullname:</label>
       <input type="name" class="form-control" id="name" name="name" placeholder="Enter name" required="true">
     </div>
 
-
-
-
     <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required="true">
+      <label for="dob ">Date of birth:</label>
+      <input type="dob" class="form-control" id="dob" name="dob" placeholder="Enter Date of birth" required="true">
     </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" name="password" placeholder="Enter password" required="true">
+
+   <div class="form-group">
+      <label for="pro">Profession:</label>
+      <input type="pro" class="form-control" id="pro" name="pro" placeholder="Enter Profession" required="true">
     </div>
-     
+   <div class="form-group">
+      <label for="gndr">Gender:</label>
+      <input type="gndr" class="form-control" id="gndr" name="gndr" placeholder="Enter Gender" required="true">
+    </div>
 
 
-    <div class="checkbox">
-      <label><input type="checkbox"> Remember me</label>
+  <div class="form-group">
+      <label for="intro">Introduction:</label>
+      <input type="intro" class="form-control" id="intro" name="intro" placeholder="Enter Introduction" required="true">
     </div>
+
+   
+   <div class="form-group">
+      <label for="fb">Facebook:</label>
+      <input type="fb" class="form-control" id="fb" name="fb" placeholder="Enter Facebook" required="true">
+    </div>
+
+    
+ <div class="form-group">
+      <label for="twt">Twitter:</label>
+      <input type="twt" class="form-control" id="twt" name="twt" placeholder="Enter Twitter" required="true">
+    </div>
+
+
+   
+
+
+    
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>
